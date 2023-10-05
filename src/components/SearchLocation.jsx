@@ -1,4 +1,4 @@
-const SearchLocation = ({ onAddLocation, location, setLocation }) => {
+const SearchLocation = ({ handleAddLocation, location, setLocation }) => {
   return (
     <div className="SearhLocation flex">
       <label htmlFor="location" className="flex w-full">
@@ -11,7 +11,7 @@ const SearchLocation = ({ onAddLocation, location, setLocation }) => {
           onChange={e => setLocation(e.target.value)}
           onKeyUp={e => {
             if(e.keyCode === 13) {
-              onAddLocation(location)
+              handleAddLocation(location)
               setLocation('')
             }
           }} />
@@ -20,7 +20,7 @@ const SearchLocation = ({ onAddLocation, location, setLocation }) => {
         type="button"
         className="flex-none text-white fontsem py-2 px-3 rounded-e-xl bg-sky-800 hover:bg-sky-700 active:bg-sky-600 focus:outline-none"
         onClick={() => {
-          onAddLocation(location)
+          handleAddLocation(location)
           setLocation('')
         }}>
         <i className="ri-search-line"></i>
