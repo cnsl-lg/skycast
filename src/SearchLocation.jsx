@@ -1,8 +1,4 @@
-import { useState } from "react";
-
-const SearchLocation = ({ onAddLocation }) => {
-  const [location, setLocation] = useState('')
-
+const SearchLocation = ({ onAddLocation, location, setLocation }) => {
   return (
     <div className="SearhLocation flex">
       <label htmlFor="location" className="flex w-full">
@@ -11,7 +7,7 @@ const SearchLocation = ({ onAddLocation }) => {
           id="location"
           className=" w-full p-2 rounded-s-xl border-4 border-sky-800 focus:outline-none focus:ring focus:ring-sky-700"
           placeholder="Enter location"
-          value={location}
+          value={location === 'jakarta' ? '' : location}
           onChange={e => setLocation(e.target.value)}
           onKeyUp={e => {
             if(e.keyCode === 13) {
