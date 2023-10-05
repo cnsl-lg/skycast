@@ -3,7 +3,7 @@ import ADayForecastList from "./ADayForecastList";
 import Astro from "./Astro";
 import MoreInfo from "./MoreInfo";
 
-const Aside = ({ forecastDay, astro, weatherCurrent }) => {
+const Aside = ({ forecastDay }) => {
   return (
     <aside className="flex flex-col gap-5">
       <ADayForecast>
@@ -12,8 +12,8 @@ const Aside = ({ forecastDay, astro, weatherCurrent }) => {
         ))}
       </ADayForecast>
       <div className="flex flex-col gap-5 lg:flex-row">
-        <Astro astro={astro} />
-        <MoreInfo weatherCurrent={weatherCurrent} />
+        <Astro />
+        <MoreInfo />
       </div>
     </aside>
   );

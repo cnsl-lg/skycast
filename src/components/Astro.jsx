@@ -1,4 +1,9 @@
-const Astro = ({ astro }) => {
+import { useContext } from "react";
+import { AboutLocation } from "../App";
+
+const Astro = () => {
+  const { astro } = useContext(AboutLocation)
+
   return (
     <div className="text-slate-100 bg-sky-700 p-5 rounded-xl flex-1">
       <h4 className="text-lg font-semibold mb-4">Astro</h4>

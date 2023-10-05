@@ -1,9 +1,9 @@
 import SearchLocation from "./SearchLocation";
 
-const Header = ({ handleAddLocation, location, setLocation }) => {
+const Header = ({ handleAddLocation, setLocation }) => {
   return (
     <header>
-      <SearchLocation handleAddLocation={handleAddLocation} location={location} setLocation={setLocation}/>
+      <SearchLocation handleAddLocation={handleAddLocation} setLocation={setLocation}/>
     </header>
   );
 }

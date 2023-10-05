@@ -2,13 +2,10 @@ import CurrentWeather from "./CurrentWeather";
 import WeatherForecast from "./WeatherForecast";
 import WeatherForecastList from "./WeatherForecastList";
 
-const Main = ({ weatherLocation, weatherCurrent, weatherCondition, forecast }) => {
+const Main = ({ forecast }) => {
   return (
     <main>
-      <CurrentWeather
-        weatherLocation={weatherLocation}
-        weatherCurrent={weatherCurrent}
-        weatherCondition={weatherCondition} />
+      <CurrentWeather />
       <WeatherForecast>
         {forecast.map(item => (
           <WeatherForecastList item={item} key={item.date} />

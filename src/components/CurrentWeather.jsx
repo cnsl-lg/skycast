@@ -1,4 +1,9 @@
-const CurrentWeather = ({ weatherLocation, weatherCurrent, weatherCondition }) => {
+import { useContext } from "react";
+import { AboutLocation } from "../App";
+
+const CurrentWeather = () => {
+  const { weatherLocation, weatherCondition, weatherCurrent } = useContext(AboutLocation)
+
   return (
     <figure className="CurrentWeather text-sky-900 text-center my-5">
       <h3 className="text-2xl font-semibold">{weatherLocation.name}</h3>

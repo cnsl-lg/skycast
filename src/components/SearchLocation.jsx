@@ -1,4 +1,9 @@
-const SearchLocation = ({ handleAddLocation, location, setLocation }) => {
+import { useContext } from "react";
+import { AboutLocation } from "../App";
+
+const SearchLocation = ({ handleAddLocation, setLocation }) => {
+  const { location } = useContext(AboutLocation)
+
   return (
     <div className="SearhLocation flex">
       <label htmlFor="location" className="flex w-full">
