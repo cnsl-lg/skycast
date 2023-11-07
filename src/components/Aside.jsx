@@ -1,22 +1,20 @@
-import ADayForecast from "./ADayForecast";
-import ADayForecastList from "./ADayForecastList";
-import Astro from "./Astro";
-import MoreInfo from "./MoreInfo";
+import AirCondition from "./AirCondition";
+import WeatherForecast from "./WeatherForecast";
+import WeatherForecastList from "./WeatherForecastList";
 
-const Aside = ({ forecastDay }) => {
+const Aside = ({ forecast }) => {
   return (
-    <aside className="flex flex-col gap-5">
-      <ADayForecast>
-        {forecastDay.map(item => (
-          <ADayForecastList item={item} key={item.time_epoch} />
-        ))}
-      </ADayForecast>
-      <div className="flex flex-col gap-5 lg:flex-row">
-        <Astro />
-        <MoreInfo />
-      </div>
-    </aside>
+    <>
+      <aside className="flex flex-col gap-5">
+        <AirCondition />
+        <WeatherForecast>
+          {forecast.map(item => (
+            <WeatherForecastList item={item} key={item.date} />
+          ))}
+        </WeatherForecast>
+      </aside>
+    </>
   );
 }
- 
+
 export default Aside;

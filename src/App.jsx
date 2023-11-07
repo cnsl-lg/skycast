@@ -1,40 +1,37 @@
 import { createContext, useState } from "react";
 import useFetch from "./custom_hook/useFetch";
-import Footer from "./components/Footer";
-import Aside from "./components/Aside";
-import Header from "./components/Header";
 import Main from "./components/Main";
+import Header from "./components/Header";
+import Aside from "./components/Aside";
 
 export const AboutLocation = createContext(null)
 
 export default function App() {
   const [location, setLocation] = useState('jakarta')
   const [changeLocation, setChangeLocation] = useState('')
-  const { weatherLocation, weatherCurrent, weatherCondition, forecast, forecastDay, astro } = useFetch(changeLocation, location)
+  const { weatherLocation, weatherCurrent, weatherCondition, forecast, forecastDay } = useFetch(changeLocation, location)
 
-  const handleAddLocation = (locationX) => {
-    setChangeLocation(locationX)
+  const handleAddLocation = (locationName) => {
+    setChangeLocation(locationName)
   }
 
   return (
-    <div className="container mx-auto p-5 flex flex-col gap-5 xl:flex-row">
+    <div className="container mx-auto p-4 flex flex-col gap-5 xl:flex-row">
       <AboutLocation.Provider
           value={{
             location,
             weatherLocation,
             weatherCurrent,
-            weatherCondition,
-            astro
+            weatherCondition
           }}>
-        <div className="lg:w-[35%]">
+        <div className="lg:w-[60%]">
           <Header
             handleAddLocation={handleAddLocation}
             setLocation={setLocation} />
-          <Main forecast={forecast} />
+          <Main forecastDay={forecastDay} />
         </div>
-        <div className="lg:w-[65%]">
-          <Aside forecastDay={forecastDay} />
-          <Footer />
+        <div className="lg:w-[40%]">
+          <Aside forecast={forecast} />
         </div>
       </AboutLocation.Provider>
     </div>

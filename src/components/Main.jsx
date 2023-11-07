@@ -1,16 +1,20 @@
-import CurrentWeather from "./CurrentWeather";
-import WeatherForecast from "./WeatherForecast";
-import WeatherForecastList from "./WeatherForecastList";
+import ADayForecast from "./ADayForecast";
+import ADayForecastList from "./ADayForecastItem";
+import HeroSection from "./HeroSection";
 
-const Main = ({ forecast }) => {
+const Main = ({ forecastDay }) => {
   return (
     <main>
-      <CurrentWeather />
-      <WeatherForecast>
-        {forecast.map(item => (
-          <WeatherForecastList item={item} key={item.date} />
-        ))}
-      </WeatherForecast>
+      <section className="bg-white">
+        <HeroSection />
+      </section>
+      <section className="flex flex-col gap-5">
+        <ADayForecast>
+          {forecastDay.map(item => (
+            <ADayForecastList item={item} key={item.time_epoch} />
+          ))}
+        </ADayForecast>
+      </section>
     </main>
   );
 }
