@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "author": "Evan Alifian",
+  "proxy": "http://api.weatherapi.com/v1/forecast.json?key=dde6f13080d34176b63135831232307",
   "description": "A weather app using api from https://www.weatherapi.com/",
   "scripts": {
     "dev": "vite",
