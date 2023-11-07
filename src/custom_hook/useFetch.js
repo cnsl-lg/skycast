@@ -8,7 +8,15 @@ const useFetch = ( changeLocation, location ) => {
   const [forecastDay, setForecastDay] = useState([])
 
   useEffect(() => {
-    fetch(`http://api.weatherapi.com/v1/forecast.json?key=dde6f13080d34176b63135831232307&days=4&aqi=yes&q=${changeLocation === '' ? location : changeLocation}`, {mode: 'cors'})
+    fetch(`http://api.weatherapi.com/v1/forecast.json?key=dde6f13080d34176b63135831232307&days=4&aqi=yes&q=${changeLocation === '' ? location : changeLocation}`, {
+      method: "GET",
+      mode: "cors",  // Change the mode to CORS  
+      headers: {
+          Authorization: `Bearer: ${'dde6f13080d34176b63135831232307'}`,
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+  })
       .then(res => res.json())
       .then(res => {
         setWeatherLocation(res.location)
