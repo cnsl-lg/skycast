@@ -7,7 +7,7 @@ import Aside from "./components/Aside";
 export const AboutLocation = createContext(null)
 
 export default function App() {
-  const [location, setLocation] = useState('jakarta')
+  const [location, setLocation] = useState('indonesia')
   const [changeLocation, setChangeLocation] = useState('')
   const { weatherLocation, weatherCurrent, weatherCondition, forecast, forecastDay } = useFetch(changeLocation, location)
 

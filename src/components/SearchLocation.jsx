@@ -18,7 +18,7 @@ const SearchLocation = ({ handleAddLocation, setLocation }) => {
           id="location"
           className="form_input"
           placeholder="Search the location"
-          value={location === 'jakarta' ? '' : location}
+          value={location === 'indonesia' ? '' : location}
           onChange={e => setLocation(e.target.value)}
           onKeyUp={e => {
             if(e.keyCode === 13) {
