@@ -9,7 +9,15 @@ export const AboutLocation = createContext(null)
 export default function App() {
   const [location, setLocation] = useState('indonesia')
   const [changeLocation, setChangeLocation] = useState('')
-  const { weatherLocation, weatherCurrent, weatherCondition, forecast, forecastDay } = useFetch(changeLocation, location)
+  const [isLoadingData, setIsLoadingData] = useState(true)
+
+  const {
+    weatherLocation,
+    weatherCurrent,
+    weatherCondition,
+    forecast,
+    forecastDay
+  } = useFetch(changeLocation, location, setIsLoadingData)
 
   const handleAddLocation = (locationName) => {
     setChangeLocation(locationName)
@@ -17,6 +25,7 @@ export default function App() {
 
   return (
     <div className="container mx-auto p-4 flex flex-col gap-5 xl:flex-row">
+      {isLoadingData && <div className="loading-animation">Loading...</div>}
       <AboutLocation.Provider
           value={{
             location,

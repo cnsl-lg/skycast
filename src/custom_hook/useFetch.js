@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-const useFetch = ( changeLocation, location ) => {
+const useFetch = ( changeLocation, location, setIsLoadingData ) => {
   const [weatherLocation, setWeatherLocation] = useState({})
   const [weatherCurrent, setWeatherCurrent] = useState({})
   const [weatherCondition, setWeatherCondition] = useState({})
@@ -18,6 +18,9 @@ const useFetch = ( changeLocation, location ) => {
         setForecastDay(res.forecast.forecastday[0].hour)
       })
       .catch(err => console.log(err))
+      .finally(() => {
+        setIsLoadingData(false); // Set isLoadingData menjadi false setelah fetching selesai
+      });
   }, [changeLocation])
 
   return { weatherLocation, weatherCurrent, weatherCondition, forecast, forecastDay }
